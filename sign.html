@@ -1,0 +1,190 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<title>Greg's Gambits | Player Inventory</title>
+<link href="greg.css" rel="stylesheet" type="text/css" />
+    
+    <script type="text/javascript">
+    
+    function getRealName(realname)
+{
+    var real = document.getElementById(realname).value;
+    document.getElementById('real_name').innerHTML = real;
+    }
+    
+    function getUsername(username)
+    
+{
+    var user = document.getElementById(username).value;
+    document.getElementById('user_name').innerHTML = user;
+    }
+    
+    function getPoints(Points)
+{
+    var pts = document.getElementById(points).value;
+    document.getElementById('user_points').innerHTML = pts;
+    }
+        
+        function pickAvatar(picked)
+        {
+            var avatar = document.getElementById(picked).value;
+            document.getElementById('myavatar').innerHTML = avatar;
+            document.getElementById('avatar_img').innerHTML = ("<img src = 'images/" + avatar + ".jpg' />");
+        }
+        
+        
+        
+        
+        
+        
+    </script>
+    
+    
+    
+    
+    
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+</head>
+<body>
+<div id="container">
+
+ <img src="images/superhero.jpg" width="120" height="120" class="floatleft" alt="Superhero"/>
+ <h1 id="logo"><em>Greg's Gambits </em></h1>
+  
+<h2 align="center"><em> Games for Everyone!</em></h2>
+
+<p>&nbsp;</p>
+<div id="nav">
+  <p><a href="index.html">Home</a>
+  <a href="greg.html">About Greg</a>
+  <a href="play_games.html">Play a Game</a>
+  <a href="sign.html">Sign In</a>
+  <a href="contact.html">Contact Us</a></p>
+    <a href="aboutyou.html">Tell Greg About You</a>
+    
+</div>
+    
+   
+   
+<!-- Functions                            -->
+    
+    
+    
+    
+<div id="content">
+
+    <h2><br />Tell Greg About You</h2>
+    <div><div>
+        <form name = "inventory">
+        <fieldset>
+            <h3>Enter the following information</h3>
+            <p>
+                <label>Your name:<br /></label>
+            
+            <input  type="text" id="realname" size = "40" value = ""/>
+            <input type = "button" onclick="getRealName('realname')" value = "ok"> </button></p>
+        
+            <p><label>Your username:<br /></label>
+        <input type = "text" id= "username" size = "40" value = ""/></p>
+        <input type = "button" onclick="getUsername('username')"
+               value = "ok"></button></p>
+    
+    <p><label>Points to date<br /></label>
+        <input type = "text" id= "username" size = "10" value = ""/></p>
+        <input type = "button" onclick="getPoints('points')"
+               value = "ok"></button></p>
+    
+    
+            </fieldset></div><div style="clear:both;"></div>
+<div><table width = "100%" border="2" <br />
+    <tr><td colspan = "5" class = "nobdr"><h3>Your Avatar </h3></td></tr>
+     <tr><td class="nobdr"><img src="images/bunny.jpg" /></td>
+<td class="nobdr"> <img src="images/elf.jpg" /> </td>
+ <td class="nobdr"> <img src="images/ghost.jpg" /></td>
+    <td class="nobdr"><img src="images/princess.jpg" /></td>
+     <td class="nobdr"><img src="images/wizard.jpg" /></td></tr>
+    <tr><td class="nobdr"><input type = "radio" name = "avatar" id = "bunny" value = "Bunny" onclick="pickAvatar('bunny')"/></td>
+     <td class="nobdr"><input type = "radio" name = "avatar" 
+                              id = "elf" value = "Elf" 
+                              onclick="pickAvatar('elf')"/></td>
+     <td class="nobdr"><input type = "radio" name = "avatar"id = "ghost" value = "Ghost" 
+                              onclick="pickAvatar('ghost')"/> </td>
+     <td class="nobdr"><input type = "radio" name = "avatar" 
+                            id = "princess" value = "Princess" 
+                              onclick="pickAvatar('princess')"/></td><td class="nobdr"><input type = "radio" name = "avatar" 
+  id = "wizard" value = "Wizard" 
+ onclick="pickAvatar('wizard')"/> </td></tr>
+    
+      </table><div style="width: 50%; float: left;"><fieldset>
+ <h3>Select three weapons to help you in your quest</h3>
+    <input type="checkbox" name="weapons" id="w0"  value="Sword" />Sword<br />
+    <input type="checkbox" name="weapons" id="w1" value="Slingshot" />Slingshot<br />
+    <input type="checkbox" name="weapons" id="w2" value="Shield" />Shield<br />
+     <input type="checkbox" name="weapons" id="w3" value="Bow and 10 Arrows" />Bow and 10 Arrows<br />
+     <input type="checkbox" name="weapons" id="w4" value="3 Magic  Rocks" />3 Magic Rocks<br />
+     <input type="checkbox" name="weapons" id="w5" value=   "Knife" />Knife<br />
+      <input type="checkbox" name="weapons" id="w6" value="Staff" />Staff<br />
+      <input type="checkbox" name="weapons" id="w7" value="Wizard's Wand" />Wizard's Wand<br />
+          
+<input type="checkbox" name="weapons" id="w8" value="Extra Arrows" />10 Extra Arrows<br />
+<input type="checkbox" name="weapons" id="w9" value="Cloak of Invisibility" />Cloak of Invisibility<br />
+<input type ="button" onclick="pickWeapons()" value = "Enter my selections" /></button></fieldset></div>
+ <div style="width: 50%; float: left;"><fieldset>
+  <h3>Select five items to carry with you on your journeys</h3>
+       <input type="checkbox" name="supplies" id="s0" value="3-Day Food Supply" />3-Day Food Supply<br />
+       <input type="checkbox" name="supplies" id="s1" value= "Backpack" />Backpack<br />
+       <input type="checkbox" name="supplies" id="s2" value="Kevlar Vest" />Kevlar Vest<br />
+       <input type="checkbox" name="supplies" id="s3" value="3-Day Water Bottle" />3-Day Supply of Water<br />
+       <input type="checkbox" name="supplies" id="s4" value="Box of 5 Firestarters" />Box of 4 Firestarters<br />
+       <input type="checkbox" name="supplies" id="s5" value= "Tent" />Tent<br />
+       <input type="checkbox" name="supplies" id="s6" value="First Aid Kit" />First Aid Kit<br />
+       <input type="checkbox" name="supplies" id="s7" value="Warm Jacket" />Warm Jacket<br />
+       <input type="checkbox" name="supplies" id="s8" value="3 Pairs Extra Socks" />3 Pairs Extra Socks<br />
+       <input type="checkbox" name="supplies" id="s9" value="Pen and Notebook" />Pen and Notebook<br />
+       <input type ="button" onclick="pickSupplies()" value = "Enter my selections" /></button></fieldset></div>
+  </div><div style="clear:both;"></div>
+  <div ><br />
+       <input type="reset" value="ooops! I made a mistake. Let me start over."><br />
+  </div><div style="width: 90%; float: left;">
+  <h3>Your information<br />
+ Your name: <span  id = "real_name">&nbsp;</span> <br /><br />
+  Username: <span  id = "user_name">&nbsp;</span> <br /><br />
+  Player points: <span id = "user_points">&nbsp;</span> <br /><br />
+  Avatar: <span  id = "myavatar">&nbsp;</span> <span id = "avatar_img">  &nbsp;</span><br /> <br />
+  Weapons:<br />
+       <span id = "weapon_one">&nbsp;</span> <br />
+       <span id = "weapon_two">&nbsp;</span><br /> 
+       <span id = "weapon_three">&nbsp;</span> <br /><br />
+  Supplies:<br />
+       <span id = "supply_one">&nbsp;</span> <br />
+       <span id = "supply_two">&nbsp;</span><br /> 
+       <span id = "supply_three">&nbsp;</span> <br />
+       <span id = "supply_four">&nbsp;</span><br /> 
+       <span id = "supply_five">&nbsp;</span> </h3></div>
+  </div></form><div style="clear:both;"></div>
+            </div>
+        
+        
+        
+        </form>
+        
+        
+        
+        
+        
+        
+        
+        </div>
+    
+    
+    
+    
+    
+    
+    
+</div>
+<div id="footer">Copyright &copy; 2013 Greg's Gambits<br />
+<a href="mailto:10012563@sfcollege.edu">10012563@sfcollege.edu</a></div>
+</div>
+</body>
+</html>

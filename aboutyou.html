@@ -1,0 +1,107 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<title>Greg's Gambits</title>
+<link href="greg.css" rel="stylesheet" type="text/css" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <script type="text/javascript">
+        //Name Function
+    function getName()
+    {
+    var name = prompt("Please enter you name", " ");
+    document.getElementById('myname').innerHTML = name;
+    
+    }
+        //Username Function
+    function getUserName()
+    {
+    var username = prompt("What do you want for your username?", " ");
+    document.getElementById('myusername').innerHTML = username;
+
+    }
+        //Get avatar
+    function getAvatar()
+        {
+            window.open('avatars.html');
+        }
+        //Pick Avatar
+        function pickAvatar()
+        {
+            var avatar = prompt("Enter the avatar you want", "Bunny");
+            
+            document.getElementById('myavatar').innerHTML = avatar;
+        }
+        
+        //Homes screen
+        function getHomes()
+        {
+            window.open('homes.html');
+        }
+        
+        function pickHome()
+        {
+            var home = prompt("Enter the home you want", "Tower");
+            
+            document.getElementById('myhome').innerHTML = home;
+        }
+        
+    </script>
+    
+</head>
+<body>
+<div id="container">
+    
+   
+    
+
+    
+    
+    
+    
+
+ <img src="images/superhero.jpg" width="120" height="120" class="floatleft" alt="Superhero"/>
+ <h1 id="logo"><em>Greg's Gambits | About You </em></h1>
+  
+<h2 align="center"><em> Tell Greg About You!</em></h2>
+    
+    
+
+<p>&nbsp;</p>
+<div id="nav">
+  <p><a href="index.html">Home</a>
+  <a href="greg.html">About Greg</a>
+  <a href="play_games.html">Play a Game</a>
+  <a href="sign.html">Sign In</a>
+  <a href="contact.html">Contact Us</a></p>
+    <a href="aboutyou.html">Tell Greg About You</a>
+    </div>
+    
+ <div id="content">
+    <p><button type="button" onclick="getName()">Enter your name</button>  </p>
+        <p> Hi there, <span id="myname">Greg</span> </p>
+     <p><button type="button" onclick="getUserName()">Enter a username</button>  </p>
+        <p> Hi there, <span id="myusername">KingGreg</span> </p>
+     <p><button type="button" onclick="getAvatar()">See the avatar choices</button>  </p>
+     
+     <p><button type="button" onclick="pickAvatar()">Select your avatar</button><br />
+         The avatar you selected is: <span  id="myavatar">kitty</span></p>
+     
+     <p><button type="button" onclick="getHomes()">See homes selection</button><br /></p>
+         
+     <p><button type="button" onclick="pickHome()">Select your home</button><br />
+         The home you selected is: <span  id="myhome">Tower</span></p>
+     
+    
+    
+    
+
+</div>
+    
+    
+
+<div id="footer">Copyright &copy; 2013 Greg's Gambits<br />
+<a href="mailto:10012563@sfcollege.edu">10012563@sfcollege.edu</a></div>
+</div>
+</body>
+</html>

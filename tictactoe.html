@@ -1,0 +1,92 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<title>Greg's Gambits | Tic Tac Toe</title>
+<link href="greg.css" rel="stylesheet" type="text/css" />
+    
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <script type="text/javascript">
+    function setOrange(x){
+        
+        document.getElementById(x).style.background="orange";
+    }
+        function setYellow(x){
+            document.getElementById(x).style.background="yellow";
+        }
+    
+    function detectxy(x){
+        if(document.getElementById(x).value == "o" || document.getElementById(x).value == "O")
+            {
+                setOrange(x);
+            }
+        else if (document.getElementById(x).value == "x" || document.getElementById(x).value == "X")
+            {
+                setYellow(x);
+            }
+        
+    }
+        function reset()
+        {
+           document.getElementById('r1c1').style.background="white"; 
+            document.getElementById('r1c1').value=" ";
+            document.getElementById('r1c2').style.background="white"; 
+           document.getElementById('r1c2').value=" "; document.getElementById('r1c3').style.background="white"; 
+           document.getElementById('r1c3').value=" "; document.getElementById('r2c1').style.background="white"; 
+           document.getElementById('r2c1').value=" "; document.getElementById('r2c2').style.background="white"; 
+           document.getElementById('r2c2').value=" "; document.getElementById('r2c3').style.background="white"; 
+           document.getElementById('r2c3').value=" "; document.getElementById('r3c1').style.background="white"; 
+           document.getElementById('r3c1').value=" "; document.getElementById('r3c2').style.background="white"; 
+           document.getElementById('r3c2').value=" "; document.getElementById('r3c3').style.background="white"; 
+            document.getElementById('r3c3').value=" ";
+        }
+    </script>
+    
+    
+    
+</head>
+<body>
+<div id="container">
+
+ <img src="images/superhero.jpg" width="120" height="120" class="floatleft" alt="Superhero"/>
+ <h1 id="logo"><em>Greg's Gambits</em></h1>
+  
+<h2 align="center"><em> Games for Everyone!</em></h2>
+
+<p>&nbsp;</p>
+<div id="nav">
+  <p><a href="index.html">Home</a>
+  <a href="greg.html">About Greg</a>
+  <a href="play_games.html">Play a Game</a>
+  <a href="sign.html">Sign In</a>
+  <a href="contact.html">Contact Us</a></p>
+    <a href="aboutyou.html">Tell Greg About You</a>
+    
+</div>
+    <fieldset id="tictacfield" >
+    <form name="tictacform" >
+        <p id="gameexplanation">This game is for two players. One player is yellow (Y), the other is orange (O). The goal is to get three boxes in a row (across, down, or diagonally). When you enter your letter into a box and click OK, the box will change to your color. The game ends either when one player wins or there is a tie.</p>
+        <input class="tictac" type="text" size="10" id="r1c1"><input type="button" value="Ok"  onclick="detectxy('r1c1')" id="x">
+        <input class="tictac" type="text" size="10"id="r1c2"><input type="button" value="Ok" onclick="detectxy('r1c2')">
+        <input class="tictac" type="text" size="10"id="r1c3"><input type="button" value="Ok" onclick="detectxy('r1c3')">
+        
+        <input class="tictac" type="text" size="10"id="r2c1"><input type="button" value="Ok" onclick="detectxy('r2c1')">
+        <input class="tictac" type="text" size="10"id="r2c2"><input type="button" value="Ok" onclick="detectxy('r2c2')">
+        <input class="tictac" type="text" size="10"id="r2c3"><input type="button" value="Ok" onclick="detectxy('r2c3')">
+        <input class="tictac" type="text" size="10"id="r3c1"><input type="button" value="Ok" onclick="detectxy('r3c1')">
+        <input class="tictac" type="text" size="10"id="r3c2"><input type="button" value="Ok" onclick="detectxy('r3c2')">
+        <input class="tictac" type="text" size="10"id="r3c3"><input type="button" value="Ok" onclick="detectxy('r3c3')">
+        
+    </form>
+        <input type="button" value="Reset and play again" onclick="reset()">
+   </fieldset>
+    
+    
+    
+    
+
+<div id="footer">Copyright &copy; 2013 Greg's Gambits<br />
+<a href="mailto:10012563@sfcollege.edu">10012563@sfcollege.edu</a></div>
+</div>
+</body>
+</html>

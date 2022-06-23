@@ -1,0 +1,209 @@
+<!DOCTYPE HTML PUBLIC "-
+//W3C//DTD HTML 4.0 Transitional//EN">
+    
+<!--- Alexandr Popenko
+11-4-2021
+Internet Programming --->
+<html>
+<head>
+	<title>Greg's Gambits | Maze</title>
+	<link href="greg.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript">
+    //declare variables
+    var cells;
+    var pitfall = false;
+    var pitfall1 = new Array(0, 0);
+    var pitfall2 = new Array(1, 0);
+    var pitfall3 = new Array(2, 0);
+    var heroLocation = new Array(0, 0);
+    
+    //create an array of elements to fill with images
+    function MakeGameGrid()
+    {
+        cells = new Array([document.getElementById("cell00"),
+                           document.getElementById("cell01"),
+                           document.getElementById("cell02"),
+                           document.getElementById("cell03")],
+                          
+                          [document.getElementById("cell10"),
+                           document.getElementById("cell11"),
+                           document.getElementById("cell12"),
+                           document.getElementById("cell13")],
+                          
+                          [document.getElementById("cell20"),
+                           document.getElementById("cell21"),
+                           document.getElementById("cell22"),
+                           document.getElementById("cell23")],
+                          
+                          [document.getElementById("cell30"),
+                           document.getElementById("cell31"),
+                           document.getElementById("cell32"),
+                           document.getElementById("cell33")]);
+        Images();
+        heroLocation[0] = 0;
+        heroLocation[1] = 0;
+        generatePitfalls();
+    }
+    //place images in their default positions
+    function Images()
+    {
+        for (var rows = 0; rows < 4; rows++)
+        {
+            for (var cols = 0; cols < 4; cols++)
+            {
+                if (rows == 0 && cols == 0)
+                    cells[rows][cols].innerHTML = ("<img src='images/hero.jpg'/>");
+                else if (rows == 3 && cols == 3)
+                    cells[rows][cols].innerHTML = ("<img src='images/princess.jpg'/>");
+                else
+                    cells[rows][cols].innerHTML = ("<img src='images/bluebox.jpg'/>");
+            }
+        }
+    }
+    //traverse the board
+    function Click(row, col)
+    {
+        var top = row - 1;
+        var bottom = row + 1;
+        var left = col - 1;
+        var right = col + 1;
+        if (heroLocation[0] == row && heroLocation[1] == left)
+        {
+            checkPitfall(row, col);
+            if (pitfall == false)
+            {
+                swap(row, col);
+                heroLocation[0] = row;
+                heroLocation[1] = col; 
+            }
+        }
+            
+        else if (heroLocation[0] == row && heroLocation[1] == right)
+        {
+            checkPitfall(row, col);
+            if (pitfall == false)
+            {
+                swap(row, col);
+                heroLocation[0] = row;
+                heroLocation[1] = col; 
+            } 
+        }
+        else if (heroLocation[0] == top && heroLocation[1] == col)
+        {
+            checkPitfall(row, col);
+            if (pitfall == false)
+            {
+                swap(row, col);
+                heroLocation[0] = row;
+                heroLocation[1] = col; 
+            }
+        }
+        else if (heroLocation[0] == bottom && heroLocation[1] == col)
+        {
+            checkPitfall(row, col);
+            if (pitfall == false)
+            {
+                swap(row, col);
+                heroLocation[0] = row;
+                heroLocation[1] = col; 
+            } 
+        }
+        else    
+            alert("You cannot make this move");
+        checkWinner();
+    }
+    function generatePitfalls()
+    {
+        do{
+            pitfall1[1] = Math.floor(Math.random() * 3 + 2);
+            pitfall2[1] = Math.floor(Math.random() * 2);
+            pitfall3[0] = Math.floor(Math.random() * 3 + 2);
+            pitfall3[1] = Math.floor(Math.random() * 2);
+        } while (pitfall1[1] == 2 && pitfall2[1] == 1 && pitfall3[0] == 1 && pitfall3[1] == 0)
+    }
+    function checkPitfall(row, col)
+    {
+        if (row == pitfall1[0] && col == pitfall1[1])
+        {
+            alert("You fell into a pit!");
+            pitfall = true;
+        }
+        else if (row == pitfall2[0] && col == pitfall2[1])
+        {
+            alert("You fell into a pit!");
+            pitfall = true;
+        }
+        else if (row == pitfall3[0] && col == pitfall3[1])
+        {
+            alert("You fell into a pit!");
+            pitfall = true;
+        }
+        else
+            pitfall = false;
+    }
+    function swap(targetRow, targetCol)
+    {
+        var targetCell = cells[targetRow][targetCol];
+        var currentCell = cells[heroLocation[0]][heroLocation[1]];
+        targetCell.innerHTML = currentCell.innerHTML;
+        currentCell.innerHTML = ("<img src='images/bluebox.jpg'/>");
+    }
+    function checkWinner()
+    {
+            if (heroLocation[0] == 3 && heroLocation[1] == 3)
+            {
+                if(window.prompt("You have won! \n Enter 'Yes' if you want play again", "Yes"))
+                {
+                    location.reload();
+                }
+            }
+    }
+</script>
+</head>
+
+<body onload = "MakeGameGrid()">
+<div id="container">
+ <img src="images/superhero.jpg" width="120" height="120" class="floatleft" />
+ <h1 id="logo"><em>Greg's Maze</em></h1>
+ <p>&nbsp;</p>
+<div id="nav">
+  <p><a href="index.html">Home</a>
+  <a href="greg.html">About Greg</a>
+  <a href="play_games.html">Play a Game</a>
+  <a href="sign.html">Sign In</a>
+  <a href="contact.html">Contact Us</a></p>
+</div>
+<div id="content">
+    <table width="60%" align = "center">
+        <tr>
+            <td height = "60"> <span onclick = "Click(0, 0)" id = "cell00" /></td>
+            <td> <span onclick = "Click(0, 1)" id = "cell01" /></td>
+            <td> <span onclick = "Click(0, 2)" id = "cell02" /></td>
+            <td> <span onclick = "Click(0, 3)" id = "cell03" /></td>
+        </tr>
+        <tr>
+            <td height = "60"> <span onclick = "Click(1, 0)" id = "cell10" /></td>
+            <td> <span onclick = "Click(1, 1)" id = "cell11" /></td>
+            <td> <span onclick = "Click(1, 2)" id = "cell12" /></td>
+            <td> <span onclick = "Click(1, 3)" id = "cell13" /></td>
+        </tr>
+        <tr>
+            <td height = "60"> <span onclick = "Click(2, 0)" id = "cell20" /></td>
+            <td> <span onclick = "Click(2, 1)" id = "cell21" /></td>
+            <td> <span onclick = "Click(2, 2)" id = "cell22" /></td>
+            <td> <span onclick = "Click(2, 3)" id = "cell23" /></td>
+        </tr>
+        <tr>
+            <td height = "60"> <span onclick = "Click(3, 0)" id = "cell30" /></td>
+            <td> <span onclick = "Click(3, 1)" id = "cell31" /></td>
+            <td> <span onclick = "Click(3, 2)" id = "cell32" /></td>
+            <td> <span onclick = "Click(3, 3)" id = "cell33" /></td>
+        </tr>
+    </table>
+</div>
+<div id="footer">Copyright &copy; 2020 Greg's Gambits<br />
+<a href="mailto:greg.drake@sfcollege.edu">greg.drake@sfcollege.edu</a>
+</div>
+</div>
+</body>
+</html>
